@@ -1,0 +1,50 @@
+<section>
+    <header style="padding-top: 25px; padding-bottom: 20px;">
+        <div style="margin-bottom: -28px;">
+            <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+        </div>
+        <div class="header">
+            <ng-container *ngFor="let step of steps; let i = index">
+                <div class="step" *ngIf="step.stepLabel">
+                    <div [ngClass]="{'active': selectedIndex === i}">
+                        <div class="numberContainer" [ngClass]="{'pendingColor': !step.completed && selectedIndex !== i, 'inProgressColor':selectedIndex === i, 'successColor': step.completed && selectedIndex !== i}">
+                            <span *ngIf="!step.completed" class="number font-bold">{{i + 1}}</span>
+                            <svg *ngIf="step.completed" xmlns="http://www.w3.org/2000/svg" style="font-size: 19px; color: white;" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <a [ngClass]="{'mutedText': !step.completed && selectedIndex !== i}" class="activeText">
+                        <ng-container *ngIf="step.stepLabel" [ngTemplateOutlet]="step.stepLabel.template"></ng-container>
+                    </a>
+
+                    <div class="mt-2">
+                        <div class="succes" *ngIf="step.completed && selectedIndex !== i">
+                            <span class="font-medium">Completado</span>
+                        </div>
+                        <div class="inProgress" *ngIf="selectedIndex === i">
+                            <span class="font-medium">En progreso</span>
+                        </div>
+
+                        <div class="pending" *ngIf="!step.completed && selectedIndex !== i">
+                            <span class="font-medium">Pendiente</span>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </header>
+
+    <div [ngTemplateOutlet]="selected ? selected.content : null"></div>
+
+    <footer class="mt-8">
+        <div class="flex justify-between" style="width: 100%;">
+            <div>
+                <button *ngIf="selectedIndex > 0" class="shadow bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded" cdkStepperPrevious (click)=" backStep()">Atras</button> &nbsp;
+                <button class="shadow bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded" *ngIf="selectedIndex < steps.length-1" (click)=" nextStep()">Siguiente</button>
+            </div>
+            <p class="text-gray-500 text-sm">* Campos obligatorios</p>
+        </div>
+    </footer>
+</section>

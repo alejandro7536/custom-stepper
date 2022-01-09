@@ -1,0 +1,138 @@
+.example-container {
+    border: 1px solid;
+    padding: 10px;
+    margin: 10px;
+}
+
+.example-step-navigation-bar {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.example-step {
+    background: transparent;
+    border: 0;
+    margin: 0 10px;
+    padding: 10px;
+    color: inherit;
+}
+
+.example-step.example-active {
+    border-bottom: 1px solid;
+    font-weight: 600;
+}
+
+.nav-button {
+    background: transparent;
+    border: 1px solid #0FB1B6;
+    border-radius: 3px;
+    color: inherit;
+    padding: 6px 8px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 10px;
+}
+
+.activeText {
+    color: black;
+}
+
+.succes {
+    background-color: #e9f4ee;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+.succes span {
+    font-size: 12px;
+    color: #69bd9a;
+    font-weight: 900;
+}
+
+.pending {
+    background-color: white;
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: 1px solid #a0a0a2;
+}
+
+.pending span {
+    font-size: 12px;
+    color: #a0a0a2;
+}
+
+.inProgress {
+    background-color: #f1f0f8;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+.inProgress span {
+    font-size: 12px;
+    color: #7d78b5;
+}
+
+.mutedText {
+    color: #a0a0a2 !important;
+}
+
+.numberContainer {
+    background-color: #69bd9a;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    font-size: 19px;
+    color: white;
+    margin-top: 3px;
+}
+
+.successColor {
+    background-color: #69bd9a;
+}
+
+.inProgressColor {
+    background-color: #69bd9a;
+}
+
+.pendingColor {
+    background-color: white;
+    border: 3px solid #a0a0a2;
+}
+
+.pendingColor span {
+    color: #a0a0a2 !important;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: #69bd9a;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 2px;
+}
