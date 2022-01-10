@@ -34,7 +34,6 @@
 .step {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
     flex-direction: column;
     padding: 5px;
     z-index: 1;
